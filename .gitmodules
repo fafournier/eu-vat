@@ -1,0 +1,3 @@
+[submodule "vat-moss.js"]
+	path = vat-moss.js
+	url = https://github.com/wbond/vat-moss.js
