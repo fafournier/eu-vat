@@ -20,8 +20,7 @@ Npm.depends({
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
   api.use('ecmascript');
-  api.use(['cosmos:browserify'], 'client');
-  api.addFiles('eu-vat.browserify.js');
+  api.addFiles('eu-vat.js');
   api.export("VAT", ['client', 'server']);
 });
 
