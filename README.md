@@ -1,4 +1,8 @@
+== In short ==
+
 This package provides tools to handle European VAT.
+
+== Warning ==
 
 This is a really early version with lots of unfinished things but it will become better soon. Feel free to do pull requests and other suggestions. I will listen!
 
