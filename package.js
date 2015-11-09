@@ -2,7 +2,7 @@ Package.describe({
   name: 'fafournier:eu-vat',
   version: '0.0.1',
   // Brief, one-line summary of the package.
-  summary: 'This package allows to work with EU-VAT.',
+  summary: 'Tools to work with EU-VAT.',
   // URL to the Git repository containing the source code for this package.
   git: 'https://github.com/fafournier/eu-vat/',
   // By default, Meteor will default to using README.md for documentation.
