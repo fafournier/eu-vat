@@ -1,20 +1,25 @@
-== In short ==
+In short
+========
 
 This package provides tools to handle European VAT.
 
-== Warning ==
+Warning
+=======
 
 This is a really early version with lots of unfinished things but it will become better soon. Feel free to do pull requests and other suggestions. I will listen!
 
-== validate-vat ==
+validate-vat
+============
 First, it wraps around the validate-vat npm package and provides a nice wrapAsync'ed method that can be called from the client to check VAT numbers: https://github.com/viruschidai/validate-vat
- === Usage ===
+Usage
+-----
 
     Meteor.call("VAT.validateVIES",'xx',  'xxxxxxx',  function(err, validationInfo) {
         console.log(validationInfo);
     });
 
-=== Returns ===
+Returns
+-------
 
 when valid
     {
@@ -46,13 +51,15 @@ possible error messages
 
 Check https://github.com/viruschidai/validate-vat for more information
 
-== VAT rate finding ==
+VAT rate finding
+================
 
 Second, on the server side, the package integrates (experimental, needs testing...) VAT-MOSS from https://github.com/wbond/vat-moss.js.
 
 Unfortunately, due to my inability of understanding the way the package is written and mostly, how it's supposed to be included (looks like a npm package but not a published one so you need to have it locally...), I had to copy and manipulate the code directly.
 
- === Usage ===
+Usage
+-----
 It is based on the usage from https://github.com/wbond/vat-moss.js but with VAT instead of vatMoss
 
      try {
@@ -71,6 +78,7 @@ It is based on the usage from https://github.com/wbond/vat-moss.js but with VAT 
 
 
 
-== VAT rates ==
+VAT rates
+=========
 Lastly, not yet working, this package should get current VAT rates from http://jsonvat.com/ and daily exchange rates from http://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml. Soon hopefully.
 Should all that be split in multiple packages? ...
