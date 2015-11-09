@@ -1,11 +1,14 @@
 if(Meteor.isServer){
 
+
   VAT = {};
 
   //get the npm package to validate vat number with VIES
-  VAT.validateVIES = Npm.require('validate-vat');
+  var VIESvalidate = Npm.require('validate-vat');
+  if(VIESvalidate)
+    VAT.validateVIES = Meteor.wrapAsync(VIESvalidate, VAT);
 
-  console.log("loading", VAT);
+  // console.log("loading", VAT);
   //get json rates  - TODO get them once at server load then return it from local server to client
   //an alternative could be to get rates from http://www.vatlive.com/vat-rates/european-vat-rates/eu-vat-rates/ but it's manual
   // var request = new XMLHttpRequest();
@@ -27,13 +30,13 @@ if(Meteor.isServer){
         var response = JSON.parse(body);
         if(response && response.rate)
         VAT.rates = response.rate;
-        console.log("Fetched jsonvat.com successfully");
+        console.log("Fetched jsonvat.com successfully", VAT.rates);
       });
   }).on('error', function(e){
       console.error("Error fetching jsonvat.com: ", e);
   });
 
-  console.log("loading", VAT);
+  // console.log("loading", VAT);
   Big = Npm.require('big.js');
 
   VAT.vatMoss = {
@@ -78,7 +81,7 @@ if(Meteor.isServer){
 
               countryCode = countryCode.replace(/^\s+|\s+$/g, '');
               if (countryCode.length !== 2) {
-                  console.log('here');
+                  // console.log('here');
                   throw new errors.ValueError('Invalidly formatted country code');
               }
 
@@ -648,5 +651,5 @@ if(Meteor.isServer){
         },
   }
 
-  console.log("loading", VAT);
+  // console.log("loading", VAT);
 }
