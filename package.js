@@ -20,8 +20,11 @@ Npm.depends({
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
   api.use('ecmascript');
+  api.use( 'livedata', [ 'server' ] ) ;
   api.addFiles('eu-vat.js');
+  api.addFiles('methods.js');
   api.export("VAT", 'server');
+  api.export( 'methods', [ 'client', 'server' ] ) ;
 });
 
 // Package.onTest(function(api) {
