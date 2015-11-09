@@ -19,8 +19,8 @@ Npm.depends({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
-  api.use('ecmascript');
-  api.use( 'livedata', [ 'server' ] ) ;
+  api.use('ecmascript@0.1.3');
+  api.use( 'livedata@1.0.14', [ 'server' ] ) ;
   api.addFiles('eu-vat.js');
   api.addFiles('methods.js');
   api.export("VAT", 'server');
