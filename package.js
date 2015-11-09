@@ -11,14 +11,18 @@ Package.describe({
 });
 
 Npm.depends({
-  validate-vat: "0.3.1"
+  "validate-vat": "0.3.1",
+  "big.js": "3.1.3",
+  // "vat-moss.js": "0.10.0",
+  "require": "2.4.20",
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('1.2.1');
+  api.versionsFrom('1.1.0.2');
   api.use('ecmascript');
-  api.addFiles('eu-vat.js');
-  api.export("VAT");
+  api.use(['cosmos:browserify'], 'client');
+  api.addFiles('eu-vat.browserify.js');
+  api.export("VAT", ['client', 'server']);
 });
 
 Package.onTest(function(api) {
