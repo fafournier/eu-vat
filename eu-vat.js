@@ -28,9 +28,14 @@ if(Meteor.isServer){
       });
       res.on('end', function(){
         var response = JSON.parse(body);
-        if(response && response.rate)
-        VAT.rates = response.rate;
-        console.log("Fetched jsonvat.com successfully", VAT.rates);
+        if(response && response.rates)
+        VAT.rates = response.rates;
+        if(VAT.rates){
+          console.log("Fetched jsonvat.com successfully"); //VAT.rates
+
+        }else {
+          console.warn("Error, fetching jsonvat.com", response)
+        }
       });
   }).on('error', function(e){
       console.error("Error fetching jsonvat.com: ", e);
