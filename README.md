@@ -1,5 +1,8 @@
-DEPRECATED: Things have changed and with npm included in meteor now, you don't need this packages. Also, if you were using this package, migration is relatively easy so do it now to avoid things breaking later.
+DEPRECATED: Use npm, you don't need this packages. 
 ====================================
+
+Things have changed and with npm included in meteor now, you don't need this packages. 
+Also, if you were using this package, migration is relatively easy so do it now to avoid things breaking later.
 
 # Use validate-vat directly from NPM
 https://github.com/viruschidai/validate-vat
