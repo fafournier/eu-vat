@@ -1,3 +1,28 @@
+DEPRECATED: Things have changed and with npm included in meteor now, you don't need this packages. Also, if you were using this package, migration is relatively easy so do it now to avoid things breaking later.
+
+# Use validate-vat directly from NPM
+https://github.com/viruschidai/validate-vat
+    npm install validate-vat
+
+Then use this instead of "VAT.validateVIES": 
+    import validate from 'validate-vat';
+    validate(countryCode, vatNumber, callback)
+
+
+# Use vat-moss directly from NPM (initially build for SaaS)
+The Package has now been published on NPM when it used to be directly copied in this meteor packages. https://github.com/wbond/vat-moss.js
+    npm install vat-moss
+
+Then use this instead of "VAT.vatMoss"
+  import vatMoss from 'vat-moss'
+
+# Note on using rates from http://jsonvat.com/ built on https://github.com/adamcooke/vat-rates/issues
+At the time of writing, the rates do not seem to have been updated since 2017-03 and some rates are now wrong. 
+The vat-moss library above does include VAT rates and they seem to be ud-to-date at that time. Maybe this is enough
+
+If you really need only the VAT rates without any other library, you could check this data instead: https://github.com/kdeldycke/vat-rates
+The original and only true source is probably: http://ec.europa.eu/taxation_customs/resources/documents/taxation/vat/how_vat_works/rates/vat_rates_en.pdf but it's not the most readable.
+
 In short
 ========
 
